@@ -2,11 +2,20 @@ package hello
 
 import "fmt"
 
-const englishPrefix = "Hello"
+const (
+	spanish = "Spanish"
 
-func Hello(name string) string {
+	englishPrefix = "Hello"
+	spanishPrefix = "Hola"
+)
+
+func Hello(name, lang string) string {
 	if name == "" {
 		name = "World"
+	}
+
+	if lang == spanish {
+		return fmt.Sprintf("%s, %s!", spanishPrefix, name)
 	}
 
 	return fmt.Sprintf("%s, %s!", englishPrefix, name)
