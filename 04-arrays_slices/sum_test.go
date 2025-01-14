@@ -32,7 +32,6 @@ func TestSumAllTails(t *testing.T) {
 			[]int{4, 5, 6},
 			[]int{7, 8, 9},
 		)
-
 		want := []int{5, 11, 17}
 
 		if !slices.Equal(got, want) {
