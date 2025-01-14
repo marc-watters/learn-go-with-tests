@@ -7,10 +7,8 @@ import (
 
 func TestSum(t *testing.T) {
 	numbers := []int{1, 2, 3}
-
 	got := Sum(numbers)
 	want := 6
-
 	if got != want {
 		t.Errorf("\ngot: \t%d\nwant:\t%d", got, want)
 	}
@@ -26,6 +24,14 @@ func TestSumAll(t *testing.T) {
 }
 
 func TestSumAllTails(t *testing.T) {
+	checkSums := func(t *testing.T, got, want []int) {
+		t.Helper()
+
+		if !slices.Equal(got, want) {
+			t.Errorf("\ngot: \t%d\nwant:\t%d", got, want)
+		}
+	}
+
 	t.Run("sum tails of varying slices", func(t *testing.T) {
 		got := SumAllTails(
 			[]int{1, 2, 3},
@@ -34,17 +40,13 @@ func TestSumAllTails(t *testing.T) {
 		)
 		want := []int{5, 11, 17}
 
-		if !slices.Equal(got, want) {
-			t.Errorf("\ngot: \t%d\nwant:\t%d", got, want)
-		}
+		checkSums(t, got, want)
 	})
 
 	t.Run("with empty slices", func(t *testing.T) {
 		got := SumAllTails([]int{})
 		want := []int{0}
 
-		if !slices.Equal(got, want) {
-			t.Errorf("\ngot: \t%d\nwant:\t%d", got, want)
-		}
+		checkSums(t, got, want)
 	})
 }
