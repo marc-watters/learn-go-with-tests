@@ -19,7 +19,7 @@ func TestArea(t *testing.T) {
 		want := 25.0
 
 		if got != want {
-			t.Errorf("\ngot: \t%.2f\nwant:\t%.2f", got, want)
+			t.Errorf("\ngot: \t%g\nwant:\t%g", got, want)
 		}
 	})
 
