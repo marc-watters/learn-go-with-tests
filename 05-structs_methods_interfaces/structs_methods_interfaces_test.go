@@ -25,7 +25,7 @@ func TestArea(t *testing.T) {
 	for _, tt := range areaTests {
 		got := tt.shape.Area()
 		if got != tt.hasArea {
-			t.Errorf("\ngot: \t%g\nwant:\t%g", got, tt.hasArea)
+			t.Errorf("\n%#v\ngot: \t%g\nwant:\t%g", tt.shape, got, tt.hasArea)
 		}
 	}
 }
