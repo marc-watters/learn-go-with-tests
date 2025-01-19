@@ -53,3 +53,12 @@ func (d Dictionary) Update(word, definition string) error {
 
 	return nil
 }
+
+func (d Dictionary) Delete(word string) error {
+	if _, ok := d[word]; !ok {
+		return ErrWordDoesNotExist
+	}
+
+	delete(d, word)
+	return nil
+}
