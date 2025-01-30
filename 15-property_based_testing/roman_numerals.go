@@ -8,6 +8,7 @@ type RomanNumeral struct {
 }
 
 var allRomanNumerals = []RomanNumeral{
+	{500, "D"},
 	{100, "C"},
 	{50, "L"},
 	{40, "XL"},
