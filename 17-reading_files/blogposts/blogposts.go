@@ -4,7 +4,9 @@ import (
 	"io/fs"
 )
 
-type Post struct{}
+type Post struct {
+	Title string
+}
 
 func NewPostsFromFS(fileSystem fs.FS) ([]Post, error) {
 	dir, err := fs.ReadDir(fileSystem, ".")
