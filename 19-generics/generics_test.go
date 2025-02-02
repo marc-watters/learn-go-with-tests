@@ -69,5 +69,9 @@ func TestStack(t *testing.T) {
 
 		// check stack is empty
 		AssertTrue(t, myStackOfStrings.IsEmpty())
+
+		// add a thing, then check if it's not empty
+		myStackOfStrings.Push("123")
+		AssertFalse(t, myStackOfStrings.IsEmpty())
 	})
 }
