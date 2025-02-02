@@ -30,3 +30,7 @@ type StackOfStrings struct {
 func (s *StackOfStrings) Push(value string) {
 	s.values = append(s.values, value)
 }
+
+func (s *StackOfStrings) IsEmpty() bool {
+	return len(s.values) == 0
+}
