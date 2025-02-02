@@ -43,7 +43,9 @@ func AssertFalse(t *testing.T, got bool) {
 		t.Errorf("\ngot: \t%v\nwant: false", got)
 	}
 }
+
 func TestStack(t *testing.T) {
+	t.Run("integer stack", func(t *testing.T) {
 		myStackOfInts := new(StackOfInts)
 
 		// check stack is empty
@@ -60,4 +62,12 @@ func TestStack(t *testing.T) {
 		value, _ = myStackOfInts.Pop()
 		AssertEqual(t, value, 123)
 		AssertTrue(t, myStackOfInts.IsEmpty())
+	})
+
+	t.Run("string stack", func(t *testing.T) {
+		myStackOfStrings := new(StackOfStrings)
+
+		// check stack is empty
+		AssertTrue(t, myStackOfStrings.IsEmpty())
+	})
 }
