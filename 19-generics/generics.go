@@ -34,3 +34,14 @@ func (s *StackOfStrings) Push(value string) {
 func (s *StackOfStrings) IsEmpty() bool {
 	return len(s.values) == 0
 }
+
+func (s *StackOfStrings) Pop() (string, bool) {
+	if s.IsEmpty() {
+		return "", false
+	}
+
+	index := len(s.values) - 1
+	el := s.values[index]
+	s.values = s.values[:index]
+	return el, true
+}
