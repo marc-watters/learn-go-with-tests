@@ -22,3 +22,7 @@ func (s *StackOfInts) Pop() (int, bool) {
 	s.values = s.values[:index]
 	return el, true
 }
+
+type StackOfStrings struct {
+	values []string
+}
