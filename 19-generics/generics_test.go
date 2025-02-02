@@ -14,7 +14,7 @@ func TestAssertFunctions(t *testing.T) {
 	})
 }
 
-func AssertEqual(t *testing.T, got, want any) {
+func AssertEqual[T comparable](t *testing.T, got, want T) {
 	t.Helper()
 
 	if got != want {
@@ -22,7 +22,7 @@ func AssertEqual(t *testing.T, got, want any) {
 	}
 }
 
-func AssertNotEqual(t *testing.T, got, want any) {
+func AssertNotEqual[T comparable](t *testing.T, got, want T) {
 	t.Helper()
 
 	if got == want {
