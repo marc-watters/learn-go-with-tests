@@ -52,4 +52,12 @@ func TestStack(t *testing.T) {
 		// add a ting, then check if it's not empty
 		myStackOfInts.Push(123)
 		AssertFalse(t, myStackOfInts.IsEmpty())
+
+		// add another thing, pop it back again
+		myStackOfInts.Push(456)
+		value, _ := myStackOfInts.Pop()
+		AssertEqual(t, value, 456)
+		value, _ = myStackOfInts.Pop()
+		AssertEqual(t, value, 123)
+		AssertTrue(t, myStackOfInts.IsEmpty())
 }
