@@ -43,3 +43,9 @@ func AssertFalse(t *testing.T, got bool) {
 		t.Errorf("\ngot: \t%v\nwant: false", got)
 	}
 }
+func TestStack(t *testing.T) {
+		myStackOfInts := new(StackOfInts)
+
+		// check stack is empty
+		AssertTrue(t, myStackOfInts.IsEmpty())
+}
