@@ -29,3 +29,10 @@ func AssertNotEqual[T comparable](t *testing.T, got, want T) {
 		t.Errorf("\ngot: \t%v\nwant:\t%v", got, want)
 	}
 }
+
+func AssertTrue(t *testing.T, got bool) {
+	t.Helper()
+	if !got {
+		t.Errorf("\ngot: \t%v\nwant: true", got)
+	}
+}
