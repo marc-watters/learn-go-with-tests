@@ -48,4 +48,8 @@ func TestStack(t *testing.T) {
 
 		// check stack is empty
 		AssertTrue(t, myStackOfInts.IsEmpty())
+
+		// add a ting, then check if it's not empty
+		myStackOfInts.Push(123)
+		AssertFalse(t, myStackOfInts.IsEmpty())
 }
