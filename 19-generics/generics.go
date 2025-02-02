@@ -26,3 +26,7 @@ func (s *StackOfInts) Pop() (int, bool) {
 type StackOfStrings struct {
 	values []string
 }
+
+func (s *StackOfStrings) Push(value string) {
+	s.values = append(s.values, value)
+}
