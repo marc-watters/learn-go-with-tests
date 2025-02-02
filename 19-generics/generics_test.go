@@ -36,3 +36,10 @@ func AssertTrue(t *testing.T, got bool) {
 		t.Errorf("\ngot: \t%v\nwant: true", got)
 	}
 }
+
+func AssertFalse(t *testing.T, got bool) {
+	t.Helper()
+	if got {
+		t.Errorf("\ngot: \t%v\nwant: false", got)
+	}
+}
