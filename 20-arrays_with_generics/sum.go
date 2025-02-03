@@ -15,6 +15,9 @@ func BalanceFor(transactions []Transaction, name string) float64 {
 			return currentBalance + t.Sum
 		}
 		return currentBalance
+func NewTransaction(from, to Account, sum float64) Transaction {
+	return Transaction{From: from.Name, To: to.Name, Sum: sum}
+}
 
 type Account struct {
 	Name    string
