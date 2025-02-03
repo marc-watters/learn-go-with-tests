@@ -1,5 +1,10 @@
 package collections
 
+type Transaction struct {
+	From string
+	To   string
+	Sum  float64
+}
 func Sum(numbers []int) int {
 	add := func(acc, x int) int { return acc + x }
 	return Reduce(numbers, add, 0)
