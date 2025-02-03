@@ -15,6 +15,11 @@ func BalanceFor(transactions []Transaction, name string) float64 {
 			return currentBalance + t.Sum
 		}
 		return currentBalance
+
+type Account struct {
+	Name    string
+	Balance float64
+}
 	}
 	return Reduce(transactions, adjustBalance, 0.0)
 }
