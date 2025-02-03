@@ -63,6 +63,17 @@ func TestReduce(t *testing.T) {
 	})
 }
 
+func TestBadBank(t *testing.T) {
+	transactions := []Transaction{
+		{From: "Marc", To: "Mark", Sum: 100},
+		{From: "Marco", To: "Marc", Sum: 25},
+	}
+
+	AssertEqual(t, BalanceFor(transactions, "Mark"), float64(100))
+	AssertEqual(t, BalanceFor(transactions, "Marc"), float64(-75))
+	AssertEqual(t, BalanceFor(transactions, "Marco"), float64(-25))
+}
+
 func AssertEqual(t *testing.T, got, want any) {
 	t.Helper()
 
