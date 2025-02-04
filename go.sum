@@ -4,3 +4,5 @@ github.com/gomarkdown/markdown v0.0.0-20241205020045-f7e15b2f3e62 h1:pbAFUZisjG4
 github.com/gomarkdown/markdown v0.0.0-20241205020045-f7e15b2f3e62/go.mod h1:JDGcbDT52eL4fju3sZ4TeHGsQwhG9nbDV21aMyhwPoA=
 github.com/quii/go-graceful-shutdown v0.6.0 h1:IIg2CnIdQWk/0yN+MOXdD5BJfa2CadfI50G7k+MopuU=
 github.com/quii/go-graceful-shutdown v0.6.0/go.mod h1:ovmTZZhfF99Z1JEmQjMzf+YelQDbUQ0L/E/fc5KFdiM=
+golang.org/x/exp v0.0.0-20250128182459-e0ece0dbea4c h1:KL/ZBHXgKGVmuZBZ01Lt57yE5ws8ZPSkkihmEyq7FXc=
+golang.org/x/exp v0.0.0-20250128182459-e0ece0dbea4c/go.mod h1:tujkw807nyEEAamNbDrEGzRav+ilXA7PCRAd6xsmwiU=
