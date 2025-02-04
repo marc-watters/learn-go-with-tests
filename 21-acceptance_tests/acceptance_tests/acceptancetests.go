@@ -7,14 +7,42 @@ import (
 	"os/exec"
 	"path/filepath"
 	"syscall"
+	"testing"
 	"time"
 
+	"github.com/quii/go-graceful-shutdown/acceptancetests"
+	"github.com/quii/go-graceful-shutdown/assert"
 	"golang.org/x/exp/rand"
 )
 
 const (
 	baseBinName = "temp-testbinary"
+
+	port = "8080"
+	url  = "<http://localhost:" + port
 )
+
+func TestGracefulShutdown(t *testing.T) {
+	cleanup, sendInterrupt, err := acceptancetests.LaunchTestProgram(port)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(cleanup)
+
+	// just check the server works before we shut things down
+	assert.CanGet(t, url)
+
+	// fire off a request, and before it has a chance to respond, send SIGTERM
+	time.AfterFunc(50*time.Millisecond, func() {
+		assert.NoError(t, sendInterrupt())
+	})
+
+	// without graceful shutdown, this would fail
+	assert.CanGet(t, url)
+
+	// after interrupt, the server should be shutdown, and no more requests will work
+	assert.CantGet(t, url)
+}
 
 func LaunchTestProgram(port string) (cleanup func(), sendInterrupt func() error, err error) {
 	binName, err := buildBinary()
