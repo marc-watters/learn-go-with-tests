@@ -44,6 +44,26 @@ func TestGracefulShutdown(t *testing.T) {
 	assert.CantGet(t, url)
 }
 
+func TestNonGracefulShutdown(t *testing.T) {
+	cleanup, sendInterrupt, err := acceptancetests.LaunchTestProgram(port)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(cleanup)
+
+	// just check the server works before we shut things down
+	assert.CanGet(t, url)
+
+	// fire off a request, it should fail because the server will be interrupted
+	time.AfterFunc(50*time.Millisecond, func() {
+		assert.NoError(t, sendInterrupt())
+	})
+	assert.CantGet(t, url)
+
+	// after interrupt, the server should be shutdown, and no more requests will work
+	assert.CantGet(t, url)
+}
+
 func LaunchTestProgram(port string) (cleanup func(), sendInterrupt func() error, err error) {
 	binName, err := buildBinary()
 	if err != nil {
