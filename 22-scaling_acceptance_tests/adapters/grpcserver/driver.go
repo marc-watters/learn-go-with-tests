@@ -40,3 +40,9 @@ func (d *Driver) getClient() (GreeterClient, error) {
 	})
 	return d.client, err
 }
+
+func (d *Driver) Close() {
+	if d.conn != nil {
+		d.conn.Close()
+	}
+}
