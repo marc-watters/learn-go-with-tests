@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net/http"
 
-	gsg "go-specs-greet/v2"
+	interactions "go-specs-greet/v2/domain/interactions"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	name := r.URL.Query().Get("name")
-	fmt.Fprint(w, gsg.Greet(name))
+	fmt.Fprint(w, interactions.Greet(name))
 }
