@@ -2,6 +2,7 @@ package grpcserver
 
 import (
 	context "context"
+	"log"
 	sync "sync"
 
 	"google.golang.org/grpc"
@@ -27,6 +28,22 @@ func (d *Driver) Greet(name string) (string, error) {
 	})
 	if err != nil {
 		return "", err
+	}
+
+	return greeting.Message, nil
+}
+
+func (d *Driver) Introduce(name string) (string, error) {
+	client, err := d.getClient()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	greeting, err := client.Introduce(context.Background(), &GreetRequest{
+		Name: name,
+	})
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	return greeting.Message, nil
