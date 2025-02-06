@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/quii/adapters/grpcserver";
+
+package grpcserver;
+
+service FormalGreeter {
+  rpc Introduce (IntroduceRequest) returns (IntroduceReply)  {}
+}
+
+message IntroduceRequest {
+  string name = 1;
+}
+
+message IntroduceReply {
+  string message = 1;
+}
